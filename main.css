@@ -1,0 +1,479 @@
+﻿@import url('http://fonts.cdnfonts.com/css/sofia-pro');
+@import url('http://fonts.cdnfonts.com/css/circular-std');
+
+* {
+margin:0;
+padding:0;
+box-sizing: border-box;
+}
+
+ul li {
+    list-style-type: none;
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+    cursor:pointer;
+}
+
+.explore_list {
+    position: absolute;
+    left: 20vw;
+    background-color: white;
+    font-size: 0;
+    display: block;
+    width: 35%;
+    min-width: 90px;
+    overflow-y: auto;
+    transition: 0.5s all;
+    height:0;
+}
+
+#explore_help{
+    border-bottom:none;
+}
+
+#explore_menu {
+    display: none;
+}
+
+.basket-user {
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
+}
+
+.basket-user a > img{
+    width:24px;
+}
+
+#check_menu{
+    display:none;
+}
+
+#mobile_menu_icon {
+    width: 24px;
+}
+
+label{
+    visibility:hidden;
+}
+
+body {
+    margin: 4% 3.6% 6.5% 3.8%;
+    font-family: 'Sofia Pro', sans-serif;
+    font-weight: 500;
+    max-width:1766px;
+}
+
+.main_container{
+    display: flex;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Circular Std', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    margin-bottom: 49px;
+    
+}
+
+.logo{
+    margin-right: 40px;
+}
+
+.explore {
+    display: none;
+}   
+
+.search {
+    margin-right:60px;
+}
+
+form {
+    display: inline-flex;
+}
+
+.search_checkbox ~ label{
+    visibility:visible;
+}
+
+input.search_checkbox {
+    display: none;
+}
+
+.header_menu {
+    width: 30vw;
+}
+
+.header_menu > ul {
+    display: flex;
+    justify-content: space-between;
+        
+}
+
+.header_menu > ul li{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1.8em;
+    width: 30vw;
+
+}
+
+.header_menu > ul li > a:hover  {
+    color:grey;
+}
+
+#main_menu {
+    visibility: hidden;
+}
+
+.mobile_menu {
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 14vw;
+    left: 25vw;
+    width: 40%;
+    height: 0px;
+    font-size: 0;
+    background-color: white;
+    transition: 0.5s all;
+}
+
+input {
+    border:none;
+    padding: 5px;
+}
+
+input::placeholder {
+   font-family: 'Circular Std', sans-serif;
+   font-weight: 500;
+   font-size: 17px;
+   color: lightgrey;
+}
+
+.products{
+    display:block;
+    border-bottom: 2px black inset;
+    padding-bottom: 5px;
+}
+
+.aside{
+    width:16%;
+}
+
+.aside b{
+    font-size:30px;
+}
+
+nav ul li a:hover {
+    color: grey;
+}
+
+nav ul li a {
+    font-size: 15px;
+    margin-top: 5.3vh;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a img {
+    margin-right: 0.8vw;
+}
+
+#HelpCenter {
+    display: flex;
+    align-items:center;
+    margin-top: 45vh;
+}
+
+.grid_body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "horiz_elem1 horiz_elem1 vert_elem3 vert_elem4"
+        "horiz_elem2 horiz_elem2 vert_elem3 vert_elem4"
+        "vert_elem1 vert_elem2 horiz_elem3 horiz_elem3"
+        "vert_elem1 vert_elem2 horiz_elem4 horiz_elem4";
+    grid-column-gap: 21px;
+    grid-row-gap: 21px;
+    font-weight: 700;
+}
+    
+.grid_body > a {
+    border-radius: 20px;
+}
+    
+.grid_body > a:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.grid_body a > img {
+   display: block;
+   border-radius: 14px;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.horiz_elem1 {
+    grid-area: horiz_elem1;
+    background: url(Images/picture_Get_up.jpg) no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    text-align: center;
+}
+
+.horiz_elem2 {
+    grid-area: horiz_elem2;
+    background: url(Images/summer_50.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+
+.horiz_elem3 {
+    grid-area: horiz_elem3;
+    background: url(Images/girl_yellow_background.jpg);
+}
+
+.horiz_elem4 {
+    grid-area: horiz_elem4;
+    background: url(Images/girl_grey_background.jpg);
+}
+
+.horiz_elem3, .horiz_elem4 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 5.5%;
+    color: #001AA2;
+    font-size: 1.8vw;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+p {
+    font-weight: 500;
+    color: black;
+    
+    font-size: 1vw;
+    display: block;
+    margin-top: 4%;
+}
+
+.vert_elem1 {
+    grid-area: vert_elem1;
+}
+
+.vert_elem2 {
+    grid-area: vert_elem2;
+}
+
+.vert_elem3 {
+    grid-area: vert_elem3;
+}
+
+.grid_body > div {
+    width: 3.3vw;
+    height: 3.3vw;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 78%;
+    padding: 1vw;
+}
+.grid_body>div:hover{
+    border: 1px black inset;
+}
+
+.grid_body div>img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.vert_elem4 {
+    grid-area: vert_elem4;
+}
+
+@media(max-width: 1100px){
+    .logo > img {
+        width: 10vw;
+    }
+
+    .logo {
+        margin: 0;
+    }
+    .aside{
+        display:none;
+    }
+
+    .header_menu{
+        display: none;
+    }
+
+    label{
+        visibility: visible;
+    }
+    
+    .explore {
+        display: initial;
+    }
+
+    #explore_menu:checked ~ .explore_list {
+        border: 1px black inset;
+        font-size: 60%;
+        display: flex;
+        flex-flow: column;
+        width: 35%;
+        height: 20%;
+        transition: 0.5s all;
+    }
+
+    #explore_menu:checked ~ .explore_list li > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px black inset;
+        padding: 1.5vw;
+    }
+
+    .explore_list li > a > img {
+        width: 3.1vw;
+        height: auto;
+        margin-right: 6px;
+    }
+
+    #check_menu:checked ~ .mobile_menu {       
+        height: 100px;
+        border: 1px black inset;
+        min-width: 115px;
+        transition: 0.5s all;
+        font-size: 16px;
+    }
+        
+    #check_menu:checked ~ .mobile_menu li >a{
+        display: block;
+        text-align: center;
+        background-color: white;
+        height: 1.5em;
+    }
+        
+    #check_menu:checked ~ .mobile_menu :not(:first-child) {
+         border-top: 1px black inset;
+    }
+        
+    #check_menu:checked ~ .mobile_menu :last-child {
+        border-bottom: 0.5px black inset;
+    }
+
+    .mobile_menu li :hover{
+        color: grey;
+    }
+}
+
+@media(max-width: 520px) {
+    
+    .logo > img {
+        width: 20vw;
+    }
+    .grid_body {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-areas:
+            "horiz_elem1 horiz_elem1"
+            "horiz_elem2 horiz_elem2"
+            "vert_elem1 vert_elem2"
+            "vert_elem1 vert_elem2"
+            "vert_elem3 vert_elem4"
+            "vert_elem3 vert_elem4"
+            "horiz_elem3 horiz_elem3"
+            "horiz_elem4 horiz_elem4";
+        grid-column-gap: 2vw;
+        grid-row-gap: 2vw;
+    }
+    .grid_body > div {
+        width: 7vw;
+        height: 7vw;
+        padding: 1.8vw;
+    }
+    
+    .horiz_elem1 {
+        font-size: 4.5vw;
+    }
+
+    p {
+        font-size: 2.2vw;
+    }
+
+    .horiz_elem3, .horiz_elem4 {
+        font-size: 4vw;
+    }
+
+    .header {
+        align-items: flex-start;
+        margin-bottom: 5%;
+    }
+
+    .search {
+        margin-right: 0;
+    }
+
+    .search1 {
+        position: absolute;
+        top: 7vh;
+        left: 45vw;
+        width: 30vw;
+        height: 3.5vh;
+        max-height:15px;
+        min-width:60px;
+        padding: 1vw;
+        visibility:hidden;
+    }
+    .search1::placeholder{
+        font-size: 3vw;
+    }
+    #search_checkbox:checked ~ .search1 {
+        visibility:visible;
+    }
+}
+
+@media(max-width: 250px) {
+    .search1 {
+        top: 3.5vh;
+        padding: 1vw;
+    }
+    .search1::placeholder {
+        font-size: 5vw;
+    }
+    .mobile_menu{
+        left: 15vw;
+    }
+    .img {
+        width: 10vw;
+        margin-right: 5vw;
+    }
+    .basket-user .img, #mobile_menu_icon {
+        width: 10vw;
+    }
+    .logo{
+        margin-right:5vw;
+    }
+    .mobile_menu{
+        top:5%;
+    } 
+}
