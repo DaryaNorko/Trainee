@@ -1,0 +1,192 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+ul li {
+    margin: 0;
+    padding: 25px;
+    list-style-type: none;
+    display: inline;
+}
+
+.main_section{
+    margin-bottom: 10%;
+}
+
+#topButtonGetStarted {
+    padding: 1.1vw 1.5vw;
+    margin-left:15px;
+    color: white;
+    background-color:black;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+a:hover{
+    color:grey;
+}
+
+button{
+    cursor: pointer;
+    border-radius: 60px;
+}
+
+body {
+    margin: 3% 10% 3% 10%;
+    font-family: 'Manrope', sans-serif;   
+}
+
+.background > img {
+    position: absolute;
+    display: block;
+}
+
+.background_red_circle {
+    top: 70px;
+    left: 180px;
+    width: 750px;
+    height: 750px;
+}
+
+.background_yellow_circle {
+    top: 400px;
+    left: 170px;
+    width: 500px;
+    height: 500px;
+}
+
+.background_blue_circle {
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 350px;
+    opacity: 0.4;
+}
+
+.logo > img {
+    width: 100%;
+    height: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.center_elements {
+    font-weight: 800;
+    font-size: 0.95vw;
+}
+
+.right_elements {
+    font-weight: 400;
+}
+
+.main_wrapper > div {
+   display: inline;      
+}
+
+.home-left-container{
+    position: absolute;
+    padding-top: 8%;
+}
+
+.home-left-container > b {  
+    font-size: 4.268vw;
+}
+
+.home-left-container > p {
+     margin-top: 4%;
+     font-weight: 600;
+     font-size: 1.73vw;
+}
+
+fieldset {
+    margin-top: 10%;
+    margin-bottom:10%;
+    border-radius:50px;
+    border-width:0px;
+    display: flex;
+    justify-content: space-between;
+    background-color:white;
+    width:33vw;
+}
+
+input{
+    margin-left: 4%;
+    border:none;
+    font-size: 16px;
+    border-radius: 50px;
+}
+
+fieldset > button {
+    background-color: #FF4229;
+    color: white;
+    border: none;
+    font-size: 1vw;
+    width: 10vw;
+    padding: 1.2vw 1.2vw;
+    margin: 2%;
+    font-weight: 700;
+}
+
+fieldset input::placeholder {
+    font-weight: 700;
+    color: lightgrey;
+}
+
+.container_for_circles {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    /*margin-bottom: 114px;*/
+    font-size: 14px;
+    font-weight: 800;
+    width: 42vw;
+}
+
+.container_for_circles > a > div {
+    width: 5.8vw;
+    height: 5.8vw;
+    min-width: 68px;
+    min-height: 68px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+}
+        
+.circle1 {
+    background-color: rgba(247,126,153,0.4);
+}
+
+.circle2 {
+    background-color: rgba(1, 234, 160,0.4);
+}
+
+.circle3 {
+    background-color: rgba(251, 195, 36, 0.4);
+}
+
+.circle4 {
+    background-color: #FF4229;
+}
+
+#deliveryMan {
+    float: right;
+    object-fit: contain;
+    width: 50%;
+    padding-bottom: 10%;
+}
+
