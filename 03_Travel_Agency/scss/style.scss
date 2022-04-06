@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Nunito+Sans:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+@import "base/settings";
+@import "components/header-top";
+@import "components/header-left-part";
+@import "components/header-right-part";
+
+// $weight-regular: 400; // regular
+// medium 500
+// $weight-m: 600; // semibold
+// bold 700
+// extraBold 800;
+
+// Общее. И посмотреть ещё отмену всех значений.
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    cursor: pointer;
+    color: lighten(black, 30%);
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: inset 2px 2px 5px rgba(167, 149, 130, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+}
+
+.header {
+    width: 100wv;
+    height: px-convert(1118);
+    padding-top: px-convert(60);
+    background-image: url(images/header_background.png);
+    background-size: 100% 100%;
+}
+
+.title {
+    color: $f-black;
+
+    &__red-text {
+        color: $f-red;
+    }
+}
+
+.header-body {
+    margin: 0 px-convert(100); // 0 100px
+    display: flex;
+    align-items: center;
+}

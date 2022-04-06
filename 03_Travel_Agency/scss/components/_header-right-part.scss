@@ -1,0 +1,54 @@
+.header-right-part {
+    width: px-convert(937);
+    height: 100%;
+
+    &__image--travel {
+        object-fit: content;
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__block {
+        background-color: white;
+        border-radius: 20px;
+        opacity: 0.95;
+        font-family: $font-Nunito;
+        display: flex;
+    }
+
+    &__text--bold {
+        font-size: px-convert(24);
+        font-weight: 700;
+        color: #595959;
+    }
+
+    &__text--semibold {
+        font-size: px-convert(20);
+        font-weight: 600;
+        color: #545567;
+    }
+
+    &__block--planner {
+        @include block-reminder(300, 100, -390px);
+        padding: px-convert(25) px-convert(31);
+
+        .img-calendar {
+            @include img-in-block(50, 50, 32);
+        }
+    }
+
+    &__block--trips {
+        @include block-reminder(390, 187, -150px);
+        padding: px-convert(16) px-convert(25) px-convert(16) px-convert(28);
+
+        .img-baggage {
+            @include img-in-block(82, 93, 8);
+        }
+    }
+    &__button--small {
+        @include red-button(px-convert(20), 700, px-convert(18) px-convert(51));
+        margin-top: px-convert(20);
+    }
+
+}

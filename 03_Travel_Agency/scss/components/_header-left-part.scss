@@ -1,0 +1,49 @@
+.header-left-part {
+    width: px-convert(783);
+    height: 100%;
+
+    &__title {
+        @include title-font(px-convert(54), 800, $font-Nunito);
+    }
+
+    &__subtitle {
+        @include subtitle-font($font-Nunito);
+        margin-top: px-convert(77);
+        color: #464646;
+    }
+
+    &__buttons-container {
+        margin-top: px-convert(100);
+        display: flex;
+        text-align: center;
+
+        .button {
+            margin-right: px-convert(26);
+        }
+    }
+
+    &__button--explore {
+        @include red-button(px-convert(24), 600, px-convert(21) px-convert(41));
+    }
+
+    &__button--play {
+        border: 0;
+        border-radius: 50%;
+        background-color: white;
+    }
+
+    &__play-triangle {
+        margin: px-convert(24);
+        display: block;
+        width: px-convert(33);
+        height: px-convert(33);
+    }
+
+    &__link--watch {
+        display: block;
+        font-family: $font-Poppins;
+        font-size: px-convert(24);
+        font-weight: 400;
+        margin-top: px-convert(24);
+    }
+}

@@ -1,0 +1,40 @@
+.header-top {
+    margin: 0px px-convert(100); // 0 100px
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: px-convert(83); //7.4 vh; // 83px
+
+    &__container-logo {
+        width: px-convert(208);
+        height: px-convert(83);
+    }
+
+    &__logo {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__menu {
+        width: px-convert(689);
+        display: flex;
+        justify-content: space-between;
+        margin-left: 50px;
+        font-family: $font-Poppins;
+        font-size: px-convert(22);
+    }
+
+    &__phone-btn {
+        @include red-button(px-convert(22), 500, px-convert(17) px-convert(38));
+        display: flex;
+        align-items: center;
+    }
+
+    &__phone-image {
+        display: block;
+        width: px-convert(39);
+        height: px-convert(32);
+    }
+}

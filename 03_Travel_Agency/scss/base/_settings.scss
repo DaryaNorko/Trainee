@@ -1,0 +1,49 @@
+$font-Poppins: "Poppins", "Manrope", sans-serif;
+$font-Nunito: "Nunito Sans", "Manrope", "Poppins", sans-serif;
+$f-red: #7f2736;
+$f-black: #2c2d32;
+
+// Functions
+
+@function px-convert($n) {
+    @return (($n/19.21) * 1vw);
+}
+// 19.21 = 1% layout-width
+
+// Mixins
+
+@mixin red-button($f-size, $f-weight, $padd...) {
+    background-color: #b25a59;
+    color: white;
+    border-radius: 40px;
+    border: 0;
+    font-size: $f-size;
+    font-weight: $f-weight;
+    padding: $padd;
+}
+
+@mixin title-font($f-size, $f-weight, $f-family) {
+    font-size: $f-size;
+    font-weight: $f-weight;
+    font-family: $f-family;
+}
+
+@mixin subtitle-font($f-family: $font-Poppins) {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: $f-family;
+}
+
+@mixin block-reminder($width, $height, $m-top) {
+    width: px-convert($width);
+    height: px-convert($height);
+    position: absolute;
+    margin-top: $m-top;
+}
+
+@mixin img-in-block($width, $height, $m-right) {
+    display: block;
+    width: px-convert($width);
+    height: px-convert($height);
+    margin-right: px-convert($m-right);
+}
