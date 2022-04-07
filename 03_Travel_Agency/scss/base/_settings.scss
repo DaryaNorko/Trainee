@@ -47,3 +47,15 @@ $f-black: #2c2d32;
     height: px-convert($height);
     margin-right: px-convert($m-right);
 }
+
+@mixin row-params(){
+    margin-top: px-convert(178);
+    padding: 0 px-convert(225);
+    text-align: center;
+}
+
+@mixin img-container (){
+    width: px-convert(600);
+    height: 100%;
+    background-position: center;
+}
