@@ -110,10 +110,10 @@
 }
 
 .header-left-part__play-triangle {
-  margin: 1.24935vw;
   display: block;
   width: 1.71786vw;
   height: 1.71786vw;
+  margin: 1.24935vw;
 }
 
 .header-left-part__link--watch {
@@ -200,61 +200,8 @@
   margin-top: 1.04112vw;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-ul li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  cursor: pointer;
-  color: #4d4d4d;
-}
-
-button:hover {
-  cursor: pointer;
-  -webkit-box-shadow: inset 2px 2px 5px rgba(167, 149, 130, 0.5), 1px 1px 5px white;
-          box-shadow: inset 2px 2px 5px rgba(167, 149, 130, 0.5), 1px 1px 5px white;
-}
-
-.header {
-  width: 100wv;
-  height: 58.19885vw;
-  padding-top: 3.12337vw;
-  background-image: url(images/header_background.png);
-  background-size: 100% 100%;
-}
-
-.title {
-  color: #2c2d32;
-}
-
-.title__red-text {
-  color: #7f2736;
-}
-
-.header-body {
-  margin: 0 5.20562vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .row1-check {
-  margin-top: 9.26601vw;
+  margin-top: 9.73451vw;
   padding: 0 11.71265vw;
   text-align: center;
 }
@@ -310,8 +257,8 @@ button:hover {
 }
 
 .row2-globally {
-  margin-top: 9.26601vw;
-  padding: 0 11.71265vw;
+  margin-top: 13.95107vw;
+  padding: 0 16.13743vw;
   text-align: center;
 }
 
@@ -387,4 +334,124 @@ button:hover {
   padding: 1.04112vw 3.01926vw;
   border: 1px solid white;
   background-color: #7f2736;
+}
+
+.row3-watch {
+  margin-top: 10.04685vw;
+  padding: 0 10.93181vw;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row3-watch__text-container {
+  width: 38.00104vw;
+  height: 26.65279vw;
+  padding-top: 3.07132vw;
+}
+
+.row3-watch__title {
+  font-size: 1.87402vw;
+  font-weight: 500;
+  font-family: "Poppins", "Manrope", sans-serif;
+  margin-bottom: 2.29047vw;
+}
+
+.row3-watch__subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Poppins", "Manrope", sans-serif;
+  margin-bottom: 2.08225vw;
+}
+
+.row3-watch__link--learn {
+  font-size: 1.14524vw;
+  font-weight: 400;
+  font-family: "Poppins", "Manrope", sans-serif;
+  color: #EE5060;
+  text-decoration: underline;
+}
+
+.row3-watch__img-container {
+  width: 36.69964vw;
+  height: 24.51848vw;
+  background: url(images/main_row3__sport.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.row3-watch__button--play {
+  border: 0;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 10.41124vw;
+}
+
+.row3-watch__play-triangle {
+  display: block;
+  width: 1.45757vw;
+  height: 1.50963vw;
+  margin: 1.40552vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #4d4d4d;
+}
+
+button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: inset 2px 2px 5px rgba(167, 149, 130, 0.5), 1px 1px 5px white;
+          box-shadow: inset 2px 2px 5px rgba(167, 149, 130, 0.5), 1px 1px 5px white;
+}
+
+.header {
+  width: 100wv;
+  height: 58.19885vw;
+  padding-top: 3.12337vw;
+  background-image: url(images/header_background.png);
+  background-size: 100% 100%;
+}
+
+.title {
+  color: #2c2d32;
+}
+
+.title__red-text {
+  color: #7f2736;
+}
+
+.header-body {
+  margin: 0 5.20562vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }

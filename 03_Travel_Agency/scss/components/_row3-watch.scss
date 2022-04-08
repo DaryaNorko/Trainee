@@ -1,0 +1,45 @@
+.row3-watch{
+    @include row-params(px-convert(193), px-convert(210), left);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__text-container{
+        @include width-height(730, 512);
+        padding-top: px-convert(59);
+    }
+
+    &__title {
+        @include title-font(px-convert(36), 500, $font-Poppins);
+        margin-bottom: px-convert(44);
+    }
+
+    &__subtitle {
+        @include subtitle-font();
+        margin-bottom: px-convert(40);
+    }
+
+    &__link--learn{
+        @include title-font(px-convert(22), 400, $font-Poppins);
+        color:#EE5060;
+        text-decoration: underline;
+    }
+
+    &__img-container{
+        @include width-height(705, 471);
+        background: url(images/main_row3__sport.jpg);
+        background-size: 100% 100%;
+        background-position: center;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    &__button--play {
+        @include button-play-back();
+        margin-top: px-convert(200);
+    }
+
+    &__play-triangle {
+        @include play-triangle(28, 29, 27);
+    }
+}

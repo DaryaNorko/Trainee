@@ -27,16 +27,11 @@
     }
 
     &__button--play {
-        border: 0;
-        border-radius: 50%;
-        background-color: white;
+        @include button-play-back();
     }
 
     &__play-triangle {
-        margin: px-convert(24);
-        display: block;
-        width: px-convert(33);
-        height: px-convert(33);
+        @include play-triangle(33, 33, 24);
     }
 
     &__link--watch {

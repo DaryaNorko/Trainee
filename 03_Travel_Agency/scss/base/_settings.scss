@@ -22,6 +22,19 @@ $f-black: #2c2d32;
     padding: $padd;
 }
 
+@mixin button-play-back() {
+    border: 0;
+    border-radius: 50%;
+    background-color: white;
+}
+
+@mixin play-triangle($width, $height, $margin) {
+    display: block;
+    width: px-convert($width);
+    height: px-convert($height);
+    margin: px-convert($margin);
+}
+
 @mixin title-font($f-size, $f-weight, $f-family) {
     font-size: $f-size;
     font-weight: $f-weight;
@@ -48,14 +61,24 @@ $f-black: #2c2d32;
     margin-right: px-convert($m-right);
 }
 
-@mixin row-params(){
-    margin-top: px-convert(178);
-    padding: 0 px-convert(225);
-    text-align: center;
+// @mixin row-params ($m-top, $padd-lr, $t-align: center){
+//     margin-top: px-convert($m-top);
+//     padding: 0 px-convert($padd-lr);
+//     text-align: $t-align;
+// }
+@mixin row-params($m-top, $padd-lr, $t-align: center) {
+    margin-top: $m-top;
+    padding: 0 $padd-lr;
+    text-align: $t-align;
 }
 
-@mixin img-container (){
+@mixin img-container() {
     width: px-convert(600);
     height: 100%;
     background-position: center;
+}
+
+@mixin width-height($width, $height) {
+    width: px-convert($width);
+    height: px-convert($height);
 }

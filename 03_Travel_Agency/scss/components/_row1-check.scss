@@ -1,0 +1,42 @@
+.row1-check {
+    @include row-params(px-convert(187), px-convert(225));
+
+    &__text-container {
+        width: px-convert(837);
+        margin: 0 px-convert(315) px-convert(85);
+    }
+
+    &__title {
+        @include title-font(px-convert(36), 700, $font-Poppins);
+        margin-bottom: px-convert(50);
+    }
+
+    &__subtitle {
+        @include subtitle-font();
+    }
+
+    &__wrapper {
+        width: px-convert(1470);
+        height: px-convert(430);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__figure {
+        width: px-convert(450);
+        height: px-convert(430);
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    &__figcaption {
+        @include title-font(px-convert(30), 500, $font-Poppins);
+        color: $f-red;
+        margin-top: px-convert(42);
+    }
+}

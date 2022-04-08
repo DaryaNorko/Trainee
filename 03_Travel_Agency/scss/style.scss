@@ -5,6 +5,9 @@
 @import "components/header-top";
 @import "components/header-left-part";
 @import "components/header-right-part";
+@import "components/row1-check";
+@import "components/row2-globally";
+@import "components/row3-watch";
 
 // $weight-regular: 400; // regular
 // medium 500
@@ -59,105 +62,7 @@ button:hover {
     align-items: center;
 }
 
-.row1-check {
-    @include row-params();
 
-    &__text-container {
-        width: px-convert(837);
-        margin: 0 px-convert(315) px-convert(85);
-    }
 
-    &__title {
-        @include title-font(px-convert(36), 700, $font-Poppins);
-        margin-bottom: px-convert(50);
-    }
 
-    &__subtitle {
-        @include subtitle-font();
-    }
 
-    &__wrapper {
-        width: px-convert(1470);
-        height: px-convert(430);
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__figure {
-        width: px-convert(450);
-        height: px-convert(430);
-    }
-
-    &__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-
-    &__figcaption{
-        @include title-font(px-convert(30), 500, $font-Poppins);
-        color: $f-red;
-        margin-top: px-convert(42);
-    }
-}
-
-.row2-globally{
-    @include row-params();
-    // margin-left: px-convert(85);
-
-     &__text-container {
-        text-align: center;
-        // width: px-convert(1101);
-        margin: 0 px-convert(60) px-convert(85);
-        padding: 0;
-    }
-
-    &__title {
-        @include title-font(px-convert(44), 600, $font-Poppins);
-        margin-bottom: px-convert(50);
-    }
-
-    &__subtitle {
-        @include subtitle-font();
-    }
-
-    &__wrapper{
-        width: 100%;
-        height: px-convert(402);
-        margin: 0;
-        // padding: 0 px-convert(310);
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__image-back-container--left{
-        background: url(images/main_row2_for-domestic.png) no-repeat;
-        @include img-container();
-    }
-
-    &__image-back-container--right{
-        background: url(images/main_row2_for-international.png) no-repeat;
-        @include img-container();  
-    }
-
-    &__block{
-        width: 100%;
-        height: 100%;
-        background-color: $f-red;
-        opacity: 0.85;
-        border-radius: 15px;
-        padding-top: px-convert(142);
-    }
-
-    &__text--for{
-        @include title-font(px-convert(32), 600, $font-Poppins);
-        color: white;
-        margin-bottom: px-convert(20);
-    }
-    &__button{
-        @include red-button(px-convert(22), 500, px-convert(20) px-convert(58));
-        border: 1px solid white;
-        background-color: $f-red;
-    }
-}
