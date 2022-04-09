@@ -3,7 +3,7 @@
     height: 100%;
 
     &__title {
-        @include title-font(px-convert(54), 800, $font-Nunito);
+        @include font-params(px-convert(54), 800, $font-Nunito);
     }
 
     &__subtitle {
@@ -35,10 +35,8 @@
     }
 
     &__link--watch {
+        @include font-params(px-convert(24), 400, $font-Poppins);
         display: block;
-        font-family: $font-Poppins;
-        font-size: px-convert(24);
-        font-weight: 400;
         margin-top: px-convert(24);
     }
 }

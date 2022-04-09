@@ -7,7 +7,7 @@
     }
 
     &__title {
-        @include title-font(px-convert(36), 700, $font-Poppins);
+        @include font-params(px-convert(36), 700, $font-Poppins);
         margin-bottom: px-convert(50);
     }
 
@@ -16,15 +16,13 @@
     }
 
     &__wrapper {
-        width: px-convert(1470);
-        height: px-convert(430);
+        @include width-height(1470, 430);
         display: flex;
         justify-content: space-between;
     }
 
     &__figure {
-        width: px-convert(450);
-        height: px-convert(430);
+        @include width-height(450, 430);
     }
 
     &__img {
@@ -35,7 +33,7 @@
     }
 
     &__figcaption {
-        @include title-font(px-convert(30), 500, $font-Poppins);
+        @include font-params(px-convert(30), 500, $font-Poppins);
         color: $f-red;
         margin-top: px-convert(42);
     }

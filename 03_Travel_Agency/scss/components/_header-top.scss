@@ -1,13 +1,12 @@
 .header-top {
-    margin: 0px px-convert(100); // 0 100px
+    margin: 0px px-convert(100); 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: px-convert(83); //7.4 vh; // 83px
+    height: px-convert(83); 
 
     &__container-logo {
-        width: px-convert(208);
-        height: px-convert(83);
+        @include width-height(208, 83);
     }
 
     &__logo {
@@ -18,12 +17,11 @@
     }
 
     &__menu {
+        @include font-params(px-convert(22), 400, $font-Poppins);
         width: px-convert(689);
         display: flex;
         justify-content: space-between;
         margin-left: 50px;
-        font-family: $font-Poppins;
-        font-size: px-convert(22);
     }
 
     &__phone-btn {
@@ -33,8 +31,6 @@
     }
 
     &__phone-image {
-        display: block;
-        width: px-convert(39);
-        height: px-convert(32);
+        @include width-height(39, 32);
     }
 }

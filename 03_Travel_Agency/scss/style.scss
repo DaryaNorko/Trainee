@@ -8,6 +8,8 @@
 @import "components/row1-check";
 @import "components/row2-globally";
 @import "components/row3-watch";
+@import "components/row4-our-team";
+@import "components/row5-why-choose";
 
 // $weight-regular: 400; // regular
 // medium 500
@@ -57,12 +59,18 @@ button:hover {
 }
 
 .header-body {
-    margin: 0 px-convert(100); // 0 100px
+    margin: 0 px-convert(100);
     display: flex;
     align-items: center;
 }
 
+.row6-testimonial {
+    @include row-params(px-convert(194), px-convert(200), left);
 
-
-
-
+    &__block--left {
+        @include width-height(618, 821);
+    }
+    &__block-title--testimonial {
+        @include font-params(px-convert(20), 400, $font-Nunito);
+    }
+}

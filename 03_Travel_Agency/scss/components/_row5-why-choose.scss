@@ -1,0 +1,51 @@
+.row5-why-choose {
+    @include row-params(px-convert(172), px-convert(225));
+
+    &__text-container {
+        @include width-height(837, 205);
+        margin-left: px-convert(320);
+        margin-bottom: px-convert(130);
+    }
+
+    &__title {
+        @include font-params(px-convert(36), 700, $font-Poppins);
+        margin-bottom: px-convert(42);
+    }
+
+    &__subtitle{
+        @include subtitle-font();
+    }
+
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__block{
+       @include width-height(450, 430); 
+       padding-top: px-convert(125);
+       border-radius: 15px;
+       box-shadow: 0 0 20px rgba(164, 161, 161, 0.2);
+    }
+
+    &__block--1{
+        @include padd-lr(70, 70);
+    }
+
+     &__block--2{
+        @include padd-lr(43, 43);
+    }
+
+     &__block--3{
+        @include padd-lr(65, 65);
+    }
+
+    &__block-title{
+        @include font-params(px-convert(30), 500, $font-Poppins);
+        margin-bottom: px-convert(73);
+    }
+
+    &__block-subtitle{
+        @include font-params(px-convert(20), 400, $font-Poppins);
+    }
+}

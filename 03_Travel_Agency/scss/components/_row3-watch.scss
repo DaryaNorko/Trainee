@@ -10,7 +10,7 @@
     }
 
     &__title {
-        @include title-font(px-convert(36), 500, $font-Poppins);
+        @include font-params(px-convert(36), 500, $font-Poppins);
         margin-bottom: px-convert(44);
     }
 
@@ -20,7 +20,7 @@
     }
 
     &__link--learn{
-        @include title-font(px-convert(22), 400, $font-Poppins);
+        @include font-params(px-convert(22), 400, $font-Poppins);
         color:#EE5060;
         text-decoration: underline;
     }

@@ -1,16 +1,12 @@
 .row2-globally{
     @include row-params(px-convert(268), px-convert(310));
-    // margin-left: px-convert(85);
 
      &__text-container {
-        text-align: center;
-        // width: px-convert(1101);
         margin: 0 px-convert(60) px-convert(85);
-        padding: 0;
     }
 
     &__title {
-        @include title-font(px-convert(44), 600, $font-Poppins);
+        @include font-params(px-convert(44), 600, $font-Poppins);
         margin-bottom: px-convert(50);
     }
 
@@ -46,7 +42,7 @@
     }
 
     &__text--for{
-        @include title-font(px-convert(32), 600, $font-Poppins);
+        @include font-params(px-convert(32), 600, $font-Poppins);
         color: white;
         margin-bottom: px-convert(20);
     }

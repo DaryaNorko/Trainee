@@ -35,7 +35,7 @@ $f-black: #2c2d32;
     margin: px-convert($margin);
 }
 
-@mixin title-font($f-size, $f-weight, $f-family) {
+@mixin font-params($f-size, $f-weight, $f-family) {
     font-size: $f-size;
     font-weight: $f-weight;
     font-family: $f-family;
@@ -81,4 +81,9 @@ $f-black: #2c2d32;
 @mixin width-height($width, $height) {
     width: px-convert($width);
     height: px-convert($height);
+}
+
+@mixin padd-lr($padd-left, $padd-right){
+    padding-left: px-convert($padd-left);
+    padding-right: px-convert($padd-right);
 }

@@ -1,0 +1,100 @@
+.row4-our-team {
+    @include row-params(px-convert(252), px-convert(178));
+    
+    &__title {
+        @include font-params(px-convert(36), 700, $font-Poppins);
+        margin-bottom: px-convert(51);
+    }
+
+    &__subtitle {
+        @include subtitle-font();
+    }
+
+    &__wrapper {
+        margin-top: px-convert(182);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // block left
+
+    &__block--left {
+        @include width-height(896, 660);
+        background: url(images/main_row4_back.png) no-repeat;
+        background-size: px-convert(783) px-convert(483);
+        padding-top: px-convert(58);
+        padding-left: px-convert(75);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__img {
+        border-radius: 5px;
+    }
+
+    &__img--1 {
+        @include width-height(255, 246);
+        margin-top: px-convert(40);
+    }
+
+    &__column--second {
+        margin: px-convert(20) px-convert(24) 0 px-convert(104);
+    }
+
+    &__img--equal-size {
+        @include width-height(166, 160);
+        margin-top: px-convert(20);
+    }
+
+    &__img--4 {
+        @include width-height(202, 195);
+    }
+
+    &__img--5 {
+        @include width-height(240, 232);
+        margin-top: px-convert(25);
+    }
+
+    // block right
+
+    &__block--right {
+        @include width-height(561, 619);
+        text-align: left;
+        margin-top: px-convert(53);
+    }
+
+    &__title-container {
+        @include font-params(px-convert(40), 700, $font-Nunito);
+        margin-bottom: px-convert(70);
+    }
+
+    &__div-text {
+        display: flex;
+        justify-content: space-between;
+    }
+
+     &__div-text--2 {
+       margin-top: px-convert(20);
+    }
+
+    &__img-container {
+        @include width-height(60, 60);
+        border-radius: 50%;
+        text-align: center;
+        padding-top: px-convert(15);
+        box-shadow: 0 0 20px rgba(164, 161, 161, 0.2);
+    }
+
+    &__img--icon-square {
+        @include width-height(26, 26);
+    }
+
+    &__img--icon-people {
+        @include width-height(30, 26);
+    }
+
+    &__paragraph-container {
+        @include width-height(429, 209);
+        @include font-params(px-convert(22), 400, $font-Poppins);
+    }
+}
