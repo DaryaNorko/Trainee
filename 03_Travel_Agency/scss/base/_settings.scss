@@ -2,13 +2,14 @@ $font-Poppins: "Poppins", "Manrope", sans-serif;
 $font-Nunito: "Nunito Sans", "Manrope", "Poppins", sans-serif;
 $f-red: #7f2736;
 $f-black: #2c2d32;
+$light-red: #EE5060;
 
 // Functions
 
 @function px-convert($n) {
-    @return (($n/19.21) * 1vw);
+    @return (($n/19.2) * 1vw);
 }
-// 19.21 = 1% layout-width
+// 19.2 = 1% layout-width
 
 // Mixins
 
