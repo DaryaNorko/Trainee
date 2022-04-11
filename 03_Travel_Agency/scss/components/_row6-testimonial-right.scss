@@ -1,0 +1,83 @@
+.row6-testimonial{
+    &__block--right {
+        @include width-height(749, 821);
+        background: url(images/main_row6_photo-back.jpg) no-repeat;
+        background-size: px-convert(560) px-convert(700);
+        position: relative;
+    }
+
+    &__block-comment {
+        @include width-height(680, 329);
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(164, 161, 161, 0.2);
+    }
+
+    &__vertical-line--red {
+        width: px-convert(14);
+        height: 100%;
+        background-color: $light-red;
+        border-radius: 15px 0 0 15px;
+        float: left;
+    }
+
+    &__text-block {
+        width: px-convert(583);
+        height: 100%;
+        margin-left: px-convert(41);
+    }
+
+    &__text-comment {
+        @include font-params(px-convert(22), 400, $font-Nunito);
+        color: $f-black;
+        margin-top: px-convert(39);
+        padding-left: px-convert(32);
+        border-left: 1px solid #bdbdd1;
+    }
+
+    &__comment-footer {
+        @include flex-between();
+        margin-top: px-convert(44);
+        align-items: center;
+    }
+
+    &__username {
+        @include font-params(px-convert(24), 600, $font-Nunito);
+        color: $f-black;
+        padding-left: px-convert(32);
+    }
+
+    &__inner-rating {
+        @include flex-between();
+        @include width-height(140, 58);
+        flex-direction: column;
+    }
+
+    &__star {
+        @include width-height(24, 24);
+    }
+
+    &__count-reviews {
+        @include font-params(px-convert(18), 600, $font-Nunito);
+        color: #80819a;
+        margin-left: px-convert(19);
+    }
+
+    &__circle-button {
+        @include width-height(80, 80);
+        @include button-play-back();
+        text-align: center;
+        position: relative;
+        top: 35%;
+        left: px-convert(538);
+        box-shadow: 0 0 20px rgba(164, 161, 161, 0.2);
+    }
+
+    &__img--short-arrow {
+        @include width-height(20, 20);
+        margin-top: px-convert(30);
+    }
+}

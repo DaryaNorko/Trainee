@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    cursor: pointer;
+    color: lighten(black, 30%);
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: inset 2px 2px 5px rgba(167, 149, 130, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+}
+
+.header {
+    width: 100wv;
+    height: px-convert(1118);
+    padding-top: px-convert(60);
+    background-image: url(images/header_background.png);
+    background-size: 100% 100%;
+}
+
+.title {
+    color: $f-black;
+
+    &__red-text {
+        color: $f-red;
+    }
+}
+
+.header-body {
+    margin: 0 px-convert(100);
+    display: flex;
+    align-items: center;
+}

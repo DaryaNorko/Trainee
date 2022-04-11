@@ -1,6 +1,7 @@
 .header-right-part {
     width: px-convert(937);
     height: 100%;
+    position:relative;
 
     &__image--travel {
         object-fit: content;
@@ -30,7 +31,10 @@
     }
 
     &__block--planner {
-        @include block-reminder(300, 100, -390px);
+        @include width-height(300, 100);
+        position:absolute;
+        top: px-convert(190);
+        left:5px;
         padding: px-convert(25) px-convert(31);
 
         .img-calendar {
@@ -39,7 +43,9 @@
     }
 
     &__block--trips {
-        @include block-reminder(390, 187, -150px);
+        @include width-height(390, 187);
+        position:absolute;
+        bottom: px-convert(40);
         padding: px-convert(16) px-convert(25) px-convert(16) px-convert(28);
 
         .img-baggage {
@@ -50,5 +56,4 @@
         @include red-button(px-convert(20), 700, px-convert(18) px-convert(51));
         margin-top: px-convert(20);
     }
-
 }

@@ -1,7 +1,6 @@
 .header-top {
+    @include flex-between();
     margin: 0px px-convert(100); 
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     height: px-convert(83); 
 
@@ -18,9 +17,8 @@
 
     &__menu {
         @include font-params(px-convert(22), 400, $font-Poppins);
+        @include flex-between();
         width: px-convert(689);
-        display: flex;
-        justify-content: space-between;
         margin-left: 50px;
     }
 

@@ -3,6 +3,7 @@ $font-Nunito: "Nunito Sans", "Manrope", "Poppins", sans-serif;
 $f-red: #7f2736;
 $f-black: #2c2d32;
 $light-red: #EE5060;
+$yellow: #F0C53E;
 
 // Functions
 
@@ -62,11 +63,6 @@ $light-red: #EE5060;
     margin-right: px-convert($m-right);
 }
 
-// @mixin row-params ($m-top, $padd-lr, $t-align: center){
-//     margin-top: px-convert($m-top);
-//     padding: 0 px-convert($padd-lr);
-//     text-align: $t-align;
-// }
 @mixin row-params($m-top, $padd-lr, $t-align: center) {
     margin-top: $m-top;
     padding: 0 $padd-lr;
@@ -87,4 +83,9 @@ $light-red: #EE5060;
 @mixin padd-lr($padd-left, $padd-right){
     padding-left: px-convert($padd-left);
     padding-right: px-convert($padd-right);
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
 }

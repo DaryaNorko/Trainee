@@ -1,0 +1,85 @@
+.footer {
+    margin-top: px-convert(168);
+    width: 100%;
+    height: px-convert(593);
+    background-color: $f-red;
+    text-align: center;
+    letter-spacing: 1px;
+
+    &__wrapper {
+        width: px-convert(599);
+        height: 100%;
+        padding-top: px-convert(74);
+        margin-left: px-convert(661);
+    }
+
+    &__top {
+        @include width-height(418, 95);
+        @include flex-between();
+        margin-left: px-convert(75);
+        margin-bottom: px-convert(94);
+    }
+
+    &__logo {
+        @include width-height(208, 95);
+    }
+
+    &__text-block {
+        @include font-params(px-convert(22), 600, $font-Poppins);
+        width: px-convert(157);
+        color: white;
+        text-align: left;
+    }
+
+    &__middle {
+        margin-bottom: px-convert(104);
+    }
+
+    &__p--subscribe {
+        @include font-params(px-convert(26), 500, $font-Poppins);
+        color: $yellow;
+        margin-bottom: px-convert(20);
+        letter-spacing: 1px;
+    }
+
+    &__form {
+        @include flex-between();
+    }
+
+    &__input-email {
+        @include font-params(px-convert(20), 400, $font-Poppins);
+        @include width-height(400, 60);
+        border: 1px solid $yellow;
+        border-radius: 40px;
+        background-color: inherit;
+        padding-left: px-convert(30);
+        letter-spacing: 1px;
+        color: white;
+    }
+
+    &__input-email::placeholder {
+        @include font-params(px-convert(20), 400, $font-Poppins);
+        color: white;
+    }
+    
+    &__button-subscribe {
+        @include width-height(179, 60);
+        @include font-params(px-convert(22), 500, $font-Poppins);
+        color: white;
+        background-image: linear-gradient(top left, #ee5060, #b25a59);
+        border: none;
+        border-radius: 40px;
+        letter-spacing: 0.5px;
+    }
+
+    &__bottom {
+        @include font-params(px-convert(22), 400, $font-Poppins);
+        color: #a7283e;
+    }
+
+    &__p-bottom--1 {
+        margin-bottom: px-convert(16);
+        letter-spacing: 1px;
+    }
+}
+

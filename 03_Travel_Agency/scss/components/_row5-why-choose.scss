@@ -17,8 +17,7 @@
     }
 
     &__wrapper{
-        display: flex;
-        justify-content: space-between;
+        @include flex-between();
     }
 
     &__block{

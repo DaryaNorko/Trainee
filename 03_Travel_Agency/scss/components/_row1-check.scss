@@ -17,8 +17,7 @@
 
     &__wrapper {
         @include width-height(1470, 430);
-        display: flex;
-        justify-content: space-between;
+        @include flex-between();
     }
 
     &__figure {

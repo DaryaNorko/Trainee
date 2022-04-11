@@ -1,7 +1,6 @@
 .row3-watch{
     @include row-params(px-convert(193), px-convert(210), left);
-    display: flex;
-    justify-content: space-between;
+    @include flex-between();
     align-items: center;
 
     &__text-container{
@@ -21,7 +20,7 @@
 
     &__link--learn{
         @include font-params(px-convert(22), 400, $font-Poppins);
-        color:#EE5060;
+        color:$light-red;
         text-decoration: underline;
     }
 

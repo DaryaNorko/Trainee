@@ -15,11 +15,10 @@
     }
 
     &__wrapper{
+        @include flex-between();
         width: 100%;
         height: px-convert(402);
         margin: 0;
-        display: flex;
-        justify-content: space-between;
     }
 
     &__image-back-container--left{
