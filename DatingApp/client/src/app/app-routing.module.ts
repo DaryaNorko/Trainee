@@ -19,7 +19,7 @@ const routes: Routes = [
     children:[
       { path: 'members', component: MemberListComponent, canActivate: [AuthGuard] }, // защита от перехода сюда
       // неавторизованного пользователя.
-      { path: 'members/:id', component: MemberDetailComponent },
+      { path: 'members/:username', component: MemberDetailComponent },
       { path: 'lists', component: ListsComponent },
       { path: 'messages', component: MessagesComponent },
     ]
