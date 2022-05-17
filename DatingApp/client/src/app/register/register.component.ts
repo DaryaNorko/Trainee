@@ -11,7 +11,7 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @Output() cancelRegister = new EventEmitter();
+  @Output() cancelRegister = new EventEmitter(); //  событие, которое будет передаваться родительскому компоненту
   registerForm: FormGroup;
   maxDate: Date;
   validationErrors: string[] = [];
@@ -52,6 +52,9 @@ export class RegisterComponent implements OnInit {
     return (control: AbstractControl) => { // именно от AbstractControl наследуются FormControl
       return control?.value === control?.parent?.controls[matchTo].value 
       ? null : {isMatching: true}
+
+      // Для сравнения паролей. если пароли не равны друг другу вернет isMatching : true. То есть валидация
+      // сработает (в initializeForm()).
   }
   }
 

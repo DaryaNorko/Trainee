@@ -8,6 +8,9 @@ import { User } from '../_models/user';
 @Injectable({
   providedIn: 'root'
 })
+
+// этот сервис для того, чтобы засовывать user в localStorage при регистриции или логине. Или удалять его оттуда(logout()).
+
 export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new ReplaySubject<User>(1); // мы обещаем, что туда когда-нибудь попадёт 1 объект user

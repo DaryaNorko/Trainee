@@ -27,14 +27,18 @@ namespace API.Services
                 new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
             };
+            // добавляем данные о пользователе - его имя и id
+            // https://metanit.com/sharp/aspnet6/13.2.php
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
-            var tokenDescriptor = new SecurityTokenDescriptor{
+            var tokenDescriptor = new SecurityTokenDescriptor{ // Это заполнитель для всех атрибутов, относящихся к выданному токену.
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(7),
                 SigningCredentials = creds
             };
+
+            // до этого просто собирали необходимые данные для создания токена
 
             var tokenHandler = new JwtSecurityTokenHandler();
 

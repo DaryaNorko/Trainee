@@ -8,6 +8,8 @@ using API.Errors;
 
 namespace API.Middleware
 {
+    // мы его просто подключим и все ошибки будут так обрабатываться и описываться в Json-формате. In Startup.cs - app.UseMiddleware<ExceptionMiddleware>()
+
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;

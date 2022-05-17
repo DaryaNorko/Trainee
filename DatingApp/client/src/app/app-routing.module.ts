@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: '',
     runGuardsAndResolvers: 'always',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard], // это из созданного нами AuthGuard - там есть меtод, который проверяет, прошел ли пользователь регистрацию?
     children:[
       { path: 'members', component: MemberListComponent},
       { path: 'members/:username', component: MemberDetailComponent },

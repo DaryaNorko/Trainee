@@ -21,6 +21,8 @@ export class MembersService {
   memberCache = new Map();
   user: User;
   userParams: UserParams;
+
+  // сервис, чтобы получить Members;
  
 
   constructor(private http: HttpClient, private accountService: AccountService) {
@@ -41,6 +43,16 @@ export class MembersService {
    resetUserParams() {
      this.userParams = new UserParams(this.user);
      return this.userParams;
+   }
+
+   addLike(username: string){
+     return this.http.post(this.baseUrl + 'likes/' + username, {})
+   }
+
+   getLikes(predicate: string, pageNumber, pageSize){
+     let params = this.getPaginationHeaders(pageNumber, pageSize);
+     params = params.append('predicate', predicate);
+     return this.getPaginatedResult<Partial<Member[]>>(this.baseUrl + 'likes', params);
    }
 
   getMembers(userParams : UserParams){
