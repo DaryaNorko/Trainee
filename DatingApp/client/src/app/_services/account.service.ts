@@ -43,6 +43,9 @@ export class AccountService {
   }
 
   setCurrentUser(user: User) {
+    user.roles = [];
+    const roles = this.getDecodedToken(user.token).role; // role - название свойства. Там может быть и больше 1-й роли.
+    Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
     localStorage.setItem('user', JSON.stringify(user));
           // localStorage - локальное хранилище в браузере. туда засовывается юзер
     this.currentUserSource.next(user);
@@ -52,6 +55,10 @@ export class AccountService {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
     // чистим, чтобы были одинковые данные (то есть null везде)
+  }
+
+  getDecodedToken(token) {
+    return JSON.parse(atob(token.split('.')[1]));
   }
 }
  
