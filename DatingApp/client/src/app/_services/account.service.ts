@@ -4,6 +4,7 @@ import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
+import { PresenceService } from './presence.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AccountService {
   private currentUserSource = new ReplaySubject<User>(1); // мы обещаем, что туда когда-нибудь попадёт 1 объект user
   currentUser$ = this.currentUserSource.asObservable(); // асинхронность для js. мы ждем ответа от сервака, поэтому асинхронно
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private presence: PresenceService) { }
   // даёт обертку чтобы обращаться к серверу
 
   login(model: any) {
@@ -26,6 +27,7 @@ export class AccountService {
         const user = response;
         if (user) {
           this.setCurrentUser(user);
+          this.presence.createHubConnection(user);
         }
       })
     );
@@ -36,6 +38,7 @@ export class AccountService {
       map((user: User) => {
         if (user) {
           this.setCurrentUser(user);
+          this.presence.createHubConnection(user);
           // c пом. метода next мы засовываем в currentUserSource user
         }
       })
@@ -54,6 +57,7 @@ export class AccountService {
   logout() {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
+    this.presence.stopHubConnection();
     // чистим, чтобы были одинковые данные (то есть null везде)
   }
 

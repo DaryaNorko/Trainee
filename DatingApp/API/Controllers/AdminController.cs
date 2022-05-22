@@ -27,7 +27,7 @@ namespace API.Controllers
                 .OrderBy(u => u.UserName)
                 .Select(u => new {
                     u.Id,
-                    Username = u.UserName,
+                    UserName = u.UserName,
                     Roles = u.UserRoles.Select(r => r.Role.Name).ToList()
                 }).ToListAsync();
                 return Ok(users);
