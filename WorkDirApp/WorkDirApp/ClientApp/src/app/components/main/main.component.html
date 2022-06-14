@@ -1,0 +1,17 @@
+    <div class="container">
+        <form action="https://localhost:5001/Folder/createDirectory" method="post">
+                <div class="container-path">
+                    <label class="label__input-text" for="input__text">Selected directory: </label>
+                    <input class="input__path" type="text" value="{{folderPath}}" name="path" disabled>
+                </div>
+
+                <div class="wrapper">
+                    <input class="input__file" type="file" accept=".json" name="file" id="input__file"
+                        class="input input__file">
+                    <label class="label__input" for="input__file">Select file</label>
+                </div>
+            <div btn_container>
+                <button class="btn__submit" type="submit">Apply schema</button>
+            </div>
+        </form>
+    </div>

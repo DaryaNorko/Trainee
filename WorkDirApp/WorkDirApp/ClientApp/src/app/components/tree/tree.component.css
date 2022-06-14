@@ -1,0 +1,40 @@
+.tree-div{
+    border-right: 2px solid rgb(202, 231, 231);
+}
+
+.rows{
+    width: 100%;
+    margin-right: 10px;
+    display:flex;
+    text-align: center;
+    justify-content: space-between;
+    background-color: rgb(202, 231, 231);
+}
+
+.example-tree-progress-bar {
+    margin-left: 30px;
+}
+
+.btn {
+    background-color: rgb(202, 231, 231);
+    border: none;
+}
+
+.radiobutton {
+    display: none;
+}
+
+
+[type="radio"]:checked+label{
+    background-color: rgb(115, 185, 115);
+}
+
+.radio-span{
+    padding-right: 15px;
+}
+
+.directory {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}

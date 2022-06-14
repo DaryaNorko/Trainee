@@ -1,0 +1,52 @@
+.container{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.label__input:hover{
+    cursor: pointer;
+}
+
+.wrapper{
+    margin-top: 15px;
+    padding-right: 25px;
+    background-color: rgb(176, 189, 216);
+    width: 650px; 
+    height: 30px;
+    display: flex;
+    vertical-align: middle;
+    justify-content: flex-end;
+}
+
+.btn_container{
+    width: 100%;
+    position: absolute;
+}
+
+.btn__submit{
+    width: 120px;
+    height: 35px;
+    position: relative;
+    left: 82%;
+    top: 10px;
+    background-color: rgb(176, 189, 216);
+    border: none;
+}
+
+.btn__submit:hover{
+    cursor: pointer;
+}
+
+input[type=text]{
+    width: 80%;
+    height: 25px;
+    background-color: #fff;
+    border: none;
+    font-weight: 600;
+    color: rgb(115, 185, 115);
+}
+
+.container-path{
+    display: inline-block;
+    width: 100%;
+}
