@@ -6,32 +6,39 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IgxTreeModule } from 'igniteui-angular';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { TreeComponent } from './components/tree/tree.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MainComponent } from './components/main/main.component';
 import { FoldersService } from './_services/folders.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { IsCreateService } from './_services/is-create.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TreeComponent,
-    MainComponent
+    MainComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    IgxTreeModule,
     MatTreeModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDialogModule,
+    MatButtonModule,
+    FormsModule
   ],
-  providers: [FoldersService],
+  providers: [FoldersService, IsCreateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

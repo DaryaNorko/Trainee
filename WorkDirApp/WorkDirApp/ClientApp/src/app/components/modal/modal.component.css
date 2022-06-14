@@ -1,0 +1,11 @@
+.btn__container{
+    margin-top: 10%;
+    display: flex;
+    justify-content:space-around;
+}
+
+.span__path{
+    font-weight: 600;
+    color: rgb(115, 185, 115);
+}
+

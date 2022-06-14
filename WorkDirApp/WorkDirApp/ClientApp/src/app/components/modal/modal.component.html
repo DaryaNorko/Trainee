@@ -1,0 +1,13 @@
+<div>
+    <mat-dialog-content>Directory  <span class="span__path">{{data.path}}</span>  is already has folders. Please, select an action.
+    </mat-dialog-content>
+    <mat-dialog-actions class="btn__container">
+        <button class="btn" mat-raised-button mat-dialog-close (click)="isCreate(true)">
+            Clear and create
+        </button>
+        <button class="btn" mat-raised-button mat-dialog-close (click)="isCreate(false)">
+            Append directory
+        </button>
+        <button class="btn" mat-raised-button [mat-dialog-close]="true">Close window</button>
+    </mat-dialog-actions>
+</div>

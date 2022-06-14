@@ -135,6 +135,8 @@ export class DynamicDataSource implements DataSource<Folder> {
 
       selectFolder(node: Folder) {
         this.foldersService.setPath(node.path);
+        this.foldersService.setIsExpanded(node.expandable);
+        this.foldersService.setFolder(node);
       }
 
       treeControl: FlatTreeControl<Folder>;

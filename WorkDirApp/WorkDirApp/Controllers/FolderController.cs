@@ -4,11 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WorkDirApp.Controllers.Data;
 
 namespace WorkDirApp.Controllers
 {
-    [ApiController] 
+    [ApiController]
     [Route("[controller]")]
     public class FolderController : Controller
     {
@@ -24,8 +25,8 @@ namespace WorkDirApp.Controllers
             foreach (var d in allDrives) // переделать имя 
             {
                 DirectoryInfo dir = new(d.Name);
-                
-                Folder folder = new Folder("Disc "+ dir.Name[0]);
+
+                Folder folder = new Folder("Disc " + dir.Name[0]);
 
                 folder.Path = dir.FullName;
                 DirectoryInfo childrens = new(dir.FullName);
@@ -79,9 +80,44 @@ namespace WorkDirApp.Controllers
             return BadRequest();
         }
 
-        [HttpPost("createDirectory")] //<List<Folder>>
-        public ActionResult<string> CreateNewDirectory([FromForm]string path, string file){
-            return path;
+        [HttpPost("appendDirectory")] 
+        public ActionResult AppendNewDirectory([FromForm] string path, string file)
+        {
+            if (Directory.Exists(path))
+            {
+            if (file.Length > 0)
+            {
+                var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
+
+                foreach (var dir in dirs)
+                {
+                    string newFolder = Path.Combine(path, dir.Key);
+                    Directory.CreateDirectory(newFolder);
+
+                    if (dir.Value != null)
+                    {
+                        foreach (var dirLevel2 in dir.Value)
+                        {
+                            string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
+                            Directory.CreateDirectory(newFolderLev2);
+
+                            if (dirLevel2.Value != null)
+                            {
+                                foreach (var dirLevel3 in dirLevel2.Value)
+                                {
+                                    string newFolderLev3 = Path.Combine(newFolder, dirLevel3.Key);
+                                    Directory.CreateDirectory(newFolderLev3);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return Ok();
+
+            }
+            return BadRequest();
         }
     }
 }
