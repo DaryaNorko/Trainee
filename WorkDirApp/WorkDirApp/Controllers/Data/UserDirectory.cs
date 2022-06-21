@@ -7,6 +7,10 @@ namespace WorkDirApp.Controllers.Data
 {
     public class UserDirectory: Dictionary<string, UserDirectory>
     {
+        public UserDirectory()
+        {
+            
+        }
         
     }
 }

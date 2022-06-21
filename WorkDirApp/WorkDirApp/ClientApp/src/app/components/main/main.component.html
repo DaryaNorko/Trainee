@@ -2,12 +2,12 @@
         <form #myForm="ngForm" method="post">
                 <div class="container-path">
                     <label class="label__input-text" for="input__text">Selected directory: </label>
-                    <input class="input__path" type="text" value="{{folderPath}}" name="path" disabled>
+                    <input class="input__path" type="text" value="{{folderPath}}" name="path" disabled required>
                 </div>
 
                 <div class="wrapper">
                     <input class="input__file" type="file" accept=".json" name="file" id="input__file"
-                        class="input input__file">
+                        class="input input__file" required>
                     <label class="label__input" for="input__file">Select file</label>
                 </div>
             <div btn_container>
@@ -15,5 +15,6 @@
             </div>
         </form>
     </div>
+
 
     

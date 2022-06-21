@@ -80,42 +80,103 @@ namespace WorkDirApp.Controllers
             return BadRequest();
         }
 
-        [HttpPost("appendDirectory")] 
-        public ActionResult AppendNewDirectory([FromForm] string path, string file)
+        [HttpPost("appendDirectory")]
+        public ActionResult AppendNewDirectory([FromForm]NewDirectory newDirectory)
         {
-            if (Directory.Exists(path))
+            string file = string.Empty;
+            if (Directory.Exists(newDirectory.path))
             {
-            if (file.Length > 0)
-            {
-                var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
-
-                foreach (var dir in dirs)
+                if (newDirectory.file.Length > 0)
                 {
-                    string newFolder = Path.Combine(path, dir.Key);
-                    Directory.CreateDirectory(newFolder);
 
-                    if (dir.Value != null)
+                    
+                    
+                    using(var stream = newDirectory.file.OpenReadStream()){
+                        file = new StreamReader(stream).ReadToEnd();
+                        stream.Close();
+                    }
+                    
+                    var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
+
+                    foreach (var dir in dirs)
                     {
-                        foreach (var dirLevel2 in dir.Value)
-                        {
-                            string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
-                            Directory.CreateDirectory(newFolderLev2);
+                        string newFolder = Path.Combine(newDirectory.path, dir.Key);
+                        Directory.CreateDirectory(newFolder);
 
-                            if (dirLevel2.Value != null)
+                        if (dir.Value != null)
+                        {
+                            foreach (var dirLevel2 in dir.Value)
                             {
-                                foreach (var dirLevel3 in dirLevel2.Value)
+                                string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
+                                Directory.CreateDirectory(newFolderLev2);
+
+                                if (dirLevel2.Value != null)
                                 {
-                                    string newFolderLev3 = Path.Combine(newFolder, dirLevel3.Key);
-                                    Directory.CreateDirectory(newFolderLev3);
+                                    foreach (var dirLevel3 in dirLevel2.Value)
+                                    {
+                                        string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
+                                        Directory.CreateDirectory(newFolderLev3);
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                return Ok();
             }
+            return BadRequest();
+        }
 
-            return Ok();
+        [HttpPost("clearAndCreateDirectory")]
+        public ActionResult ClearAndCreateDirectory([FromForm] NewDirectory newDirectory)
+        {
+            string file = string.Empty;
+            if (Directory.Exists(newDirectory.path))
+            {
+                if (newDirectory.file.Length > 0)
+                {
+                    DirectoryInfo directory = new(newDirectory.path);
+                    DirectoryInfo[] folders = directory.GetDirectories();
 
+                    foreach (var folder in folders)
+                    {
+                        string path = Path.Combine(newDirectory.path, folder.Name);
+                        Directory.Delete(path, true);
+                    }
+
+                    using (var stream = newDirectory.file.OpenReadStream())
+                    {
+                        file = new StreamReader(stream).ReadToEnd();
+                        stream.Close();
+                    }
+
+                    var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
+
+                    foreach (var dir in dirs)
+                    {
+                        string newFolder = Path.Combine(newDirectory.path, dir.Key);
+                        Directory.CreateDirectory(newFolder);
+
+                        if (dir.Value != null)
+                        {
+                            foreach (var dirLevel2 in dir.Value)
+                            {
+                                string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
+                                Directory.CreateDirectory(newFolderLev2);
+
+                                if (dirLevel2.Value != null)
+                                {
+                                    foreach (var dirLevel3 in dirLevel2.Value)
+                                    {
+                                        string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
+                                        Directory.CreateDirectory(newFolderLev3);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return Ok();
             }
             return BadRequest();
         }

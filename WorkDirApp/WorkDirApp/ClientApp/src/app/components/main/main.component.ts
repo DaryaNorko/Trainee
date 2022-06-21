@@ -16,7 +16,8 @@ export class MainComponent implements OnInit {
 
   @Input() folderPath: string = "";
   isExpandable: boolean;
-  urlAppend = "https://localhost:5001/Folder/appendDirectory";  // написать url
+  urlAppend = "https://localhost:5001/Folder/appendDirectory"; 
+  urlClearAndCreate = "https://localhost:5001/Folder/clearAndCreateDirectory";
 
   constructor(private foldersService: FoldersService, public dialog: MatDialog,
     public createService: IsCreateService, public http: HttpClient) {
@@ -41,16 +42,16 @@ export class MainComponent implements OnInit {
       dialogRef.afterClosed().subscribe(() =>{
         this.isCreate = this.createService.getIsCreate();
         if (this.isCreate) {
-          this.http.post(this.urlAppend, form);
-          console.log(`${this.isCreate}`)
+          this.http.post(this.urlClearAndCreate, form);
+          console.log(`${this.isCreate}`) // убрать
         } else if (!this.isCreate) {
-          // просто создаём
           this.http.post(this.urlAppend, form);
           console.log(`${this.isCreate}`)
         } else return;       
       })
-
-      
+    }
+    else{
+      this.http.post(this.urlAppend, form);
     }
   }
 }
