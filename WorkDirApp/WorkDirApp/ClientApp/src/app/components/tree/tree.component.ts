@@ -13,7 +13,7 @@ import { FoldersService } from 'src/app/_services/folders.service';
 export class DynamicDatabase {
   dto: NextPath = { path: "" };
   path = "https://localhost:5001";
-  array: Folder[] = []
+  array: Folder[] = [];
 
   constructor(public http: HttpClient) { }
 
@@ -147,7 +147,6 @@ export class DynamicDataSource implements DataSource<Folder> {
 
       isExpandable = (node: Folder) => node.expandable;
 
-      hasChild = (_: number, _nodeData: Folder) => _nodeData.expandable;
-    
+      hasChild = (_: number, _nodeData: Folder) => _nodeData.expandable; 
     }
   

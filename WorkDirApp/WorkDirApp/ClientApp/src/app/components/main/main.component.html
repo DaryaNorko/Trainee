@@ -1,8 +1,8 @@
-    <div class="container">
-        <form #myForm="ngForm" method="post">
+    <!-- <div class="container">
+        <form #myForm="ngForm">
                 <div class="container-path">
                     <label class="label__input-text" for="input__text">Selected directory: </label>
-                    <input class="input__path" type="text" value="{{folderPath}}" name="path" disabled required>
+                    <input class="input__path" type="text" value="{{folderPath}}" name="path"id="input__path" required>
                 </div>
 
                 <div class="wrapper">
@@ -10,6 +10,25 @@
                         class="input input__file" required>
                     <label class="label__input" for="input__file">Select file</label>
                 </div>
+            <div btn_container>
+                <button class="btn__submit" type="submit" (click)="showModal(myForm)">Apply schema</button>
+            </div>
+        </form>
+    </div> -->
+
+    <div class="container-path">
+        <span class="label__input-text" for="input__text">Selected directory: </span>
+        <span class="input__path" type="text" required>{{folderPath}} </span>
+    </div>
+
+    <div class="container">
+        <form #myForm="ngForm">
+            <div class="wrapper">
+                <input class="input__file" type="file" accept=".json" name="file" id="input__file" class="input input__file"
+                    required>
+                <label class="label__input" for="input__file">Select file</label>
+                
+            </div>
             <div btn_container>
                 <button class="btn__submit" type="submit" (click)="showModal(myForm)">Apply schema</button>
             </div>

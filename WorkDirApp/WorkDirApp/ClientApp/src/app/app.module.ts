@@ -15,7 +15,7 @@ import { FoldersService } from './_services/folders.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IsCreateService } from './_services/is-create.service';
 
 @NgModule({
@@ -36,7 +36,8 @@ import { IsCreateService } from './_services/is-create.service';
     MatProgressBarModule,
     MatDialogModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FoldersService, IsCreateService],
   bootstrap: [AppComponent]

@@ -87,10 +87,7 @@ namespace WorkDirApp.Controllers
             if (Directory.Exists(newDirectory.path))
             {
                 if (newDirectory.file.Length > 0)
-                {
-
-                    
-                    
+                {          
                     using(var stream = newDirectory.file.OpenReadStream()){
                         file = new StreamReader(stream).ReadToEnd();
                         stream.Close();
@@ -180,5 +177,50 @@ namespace WorkDirApp.Controllers
             }
             return BadRequest();
         }
+
+        // [HttpPost("appendDirectory1")] // удалить
+        // public ActionResult AppendNewDirectory1([FromForm] NewDirectory newDirectory)
+        // {
+        //     string file = string.Empty;
+        //     if (Directory.Exists(newDirectory.path))
+        //     {
+        //         if (newDirectory.file.Length > 0)
+        //         {
+        //             using (var stream = newDirectory.file.OpenReadStream())
+        //             {
+        //                 file = new StreamReader(stream).ReadToEnd();
+        //                 stream.Close();
+        //             }
+
+        //             var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
+
+        //             foreach (var dir in dirs)
+        //             {
+        //                 string newFolder = Path.Combine(newDirectory.path, dir.Key);
+        //                 Directory.CreateDirectory(newFolder);
+
+        //                 if (dir.Value != null)
+        //                 {
+        //                     foreach (var dirLevel2 in dir.Value)
+        //                     {
+        //                         string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
+        //                         Directory.CreateDirectory(newFolderLev2);
+
+        //                         if (dirLevel2.Value != null)
+        //                         {
+        //                             foreach (var dirLevel3 in dirLevel2.Value)
+        //                             {
+        //                                 string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
+        //                                 Directory.CreateDirectory(newFolderLev3);
+        //                             }
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         return Ok();
+        //     }
+        //     return BadRequest();
+        // }
     }
 }
