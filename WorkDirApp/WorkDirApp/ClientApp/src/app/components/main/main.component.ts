@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { IsCreateService } from 'src/app/_services/is-create.service';
 import { HttpClient } from '@angular/common/http';
-import { FormDto } from 'src/app/models/formDto';
+import { FormDto, FormDto2 } from 'src/app/models/formDto';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,17 +17,14 @@ export class MainComponent implements OnInit {
   urlAppend = "https://localhost:5001/Folder/appendDirectory";
   urlClearAndCreate = "https://localhost:5001/Folder/clearAndCreateDirectory";
   isCreate: boolean;
-  formDto: FormDto = { path: "", file: new File([], "", null)};
+  file: File;
+  // formDto: FormDto = { path: "", file: new File([], "", null) }; // удалить dto
 
   constructor(private foldersService: FoldersService, public dialog: MatDialog,
     public createService: IsCreateService, public http: HttpClient) {
   }
 
   ngOnInit(): void {
-    // this.form = new FormGroup({
-    //   path: new FormControl('', Validators.required),
-    //   file: new FormControl('', Validators.required),
-    // });
   }
 
   ngAfterContentChecked() {
@@ -35,42 +32,38 @@ export class MainComponent implements OnInit {
     this.isExpandable = this.foldersService.getIsExpanded();
   }
 
-  showModal(form) {
-    // let formParams = new FormData();
-    // formParams.append('path', this.folderPath);
-    // formParams.append('file', form.value.file);
-    this.formDto.file = form.value.file;
-    this.formDto.path = this.folderPath;
+  onFileSelected(event) {
+    this.file = event.target.files[0];
+  }
 
-    if (this.isExpandable) {
-      const dialogRef = this.dialog.open(ModalComponent, {
-        data: { path: this.folderPath},
-        height: '300px',
-        width: '500px',
-      });
+  showModal() {
+    if (this.file) {
+      let formParams = new FormData();
+      formParams.append('path', this.folderPath);
+      formParams.append('file', this.file);
 
-      dialogRef.afterClosed().subscribe(() => {
-        this.isCreate = this.createService.getIsCreate();
-        console.log(`${this.folderPath}`); 
-        console.log(`${form.value.file}`); 
+      if (this.isExpandable) {
+        const dialogRef = this.dialog.open(ModalComponent, {
+          data: { path: this.folderPath },
+          height: '300px',
+          width: '500px',
+        });
 
-        // console.log(this.formDto.path);
-        // console.log(`${this.folderPath}`);
-        // console.log(form.value.file);
-        // console.log(`${form.value.file}`); 
+        dialogRef.afterClosed().subscribe(() => {
+          this.isCreate = this.createService.getIsCreate();
 
-        if (this.isCreate) {
-          this.http.post(this.urlClearAndCreate, this.formDto);
-          console.log(`${this.formDto.file}`) // убрать
-        } else {
-          this.http.post(this.urlAppend, this.formDto);
-          console.log(`${this.formDto.file}`)
-        }
-      })
-    } else {
-      // редактировать
-      this.http.post(this.urlAppend, this.formDto);
-      // console.log(`${form.file}`)
+          if (this.isCreate) {
+            const upload$ = this.http.post(this.urlClearAndCreate, formParams);
+            upload$.subscribe();
+          } else {
+            const upload$ = this.http.post(this.urlAppend, formParams);
+            upload$.subscribe();
+          }
+        })
+      } else {
+        const upload$ = this.http.post(this.urlAppend, formParams);
+        upload$.subscribe();
+      }
     }
   }
 }

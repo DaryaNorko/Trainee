@@ -24,16 +24,19 @@
     <div class="container">
         <form #myForm="ngForm">
             <div class="wrapper">
-                <input class="input__file" type="file" accept=".json" name="file" id="input__file" class="input input__file"
+                <input class="input__file" type="file" accept=".json" name="file" id="input__file" class="input input__file" 
+                (change)="onFileSelected($event)"
                     required>
                 <label class="label__input" for="input__file">Select file</label>
                 
             </div>
             <div btn_container>
-                <button class="btn__submit" type="submit" (click)="showModal(myForm)">Apply schema</button>
+                <button class="btn__submit" type="submit" (click)="showModal()">Apply schema</button>
             </div>
         </form>
     </div>
+
+
 
 
     
