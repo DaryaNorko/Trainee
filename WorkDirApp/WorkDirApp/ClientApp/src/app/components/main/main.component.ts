@@ -5,6 +5,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { IsCreateService } from 'src/app/_services/is-create.service';
 import { HttpClient } from '@angular/common/http';
 import { FormDto, FormDto2 } from 'src/app/models/formDto';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -18,9 +19,10 @@ export class MainComponent implements OnInit {
   urlClearAndCreate = "https://localhost:5001/Folder/clearAndCreateDirectory";
   isCreate: boolean;
   file: File;
+  fileName: string;
   // formDto: FormDto = { path: "", file: new File([], "", null) }; // удалить dto
 
-  constructor(private foldersService: FoldersService, public dialog: MatDialog,
+  constructor(private foldersService: FoldersService, private toastr: ToastrService, public dialog: MatDialog,
     public createService: IsCreateService, public http: HttpClient) {
   }
 
@@ -34,9 +36,17 @@ export class MainComponent implements OnInit {
 
   onFileSelected(event) {
     this.file = event.target.files[0];
+    this.fileName = this.file.name;
   }
 
   showModal() {
+    if (!this.folderPath) {
+      this.toastr.error("Please, select a directory", "Warning!", {
+        timeOut: 3000,
+      });
+      return;
+    }
+
     if (this.file) {
       let formParams = new FormData();
       formParams.append('path', this.folderPath);

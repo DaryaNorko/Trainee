@@ -1,26 +1,32 @@
 .container{
     margin-top: 10px;
     margin-left: 30px;
+    position: absolute;
+}
+
+.fileName{
+    margin-right: 30px;
+}
+
+.label__input{
+    display: block;
+    width: 120px;
+    text-align: center;
 }
 
 .label__input:hover{
     cursor: pointer;
+    box-shadow: 0 0 0 2px rgb(176, 189, 216) inset, 0 0 0 3px white inset;    
 }
 
 .wrapper{
     margin-top: 15px;
-    padding-right: 25px;
     background-color: rgb(176, 189, 216);
     width: 650px; 
     height: 30px;
     display: flex;
     vertical-align: middle;
     justify-content: flex-end;
-}
-
-.btn_container{
-    width: 100%;
-    position: absolute;
 }
 
 .btn__submit{
@@ -35,9 +41,10 @@
 
 .btn__submit:hover{
     cursor: pointer;
+    box-shadow: 0 0 0 2px rgb(176, 189, 216) inset, 0 0 0 3px white inset;
 }
 
-input[type=text]{
+.span__path{
     width: 80%;
     height: 25px;
     background-color: #fff;
@@ -49,4 +56,13 @@ input[type=text]{
 .container-path{
     display: inline-block;
     width: 100%;
+}
+
+.input__file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }

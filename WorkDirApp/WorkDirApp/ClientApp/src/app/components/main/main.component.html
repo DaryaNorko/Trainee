@@ -1,42 +1,19 @@
-    <!-- <div class="container">
-        <form #myForm="ngForm">
-                <div class="container-path">
-                    <label class="label__input-text" for="input__text">Selected directory: </label>
-                    <input class="input__path" type="text" value="{{folderPath}}" name="path"id="input__path" required>
-                </div>
-
-                <div class="wrapper">
-                    <input class="input__file" type="file" accept=".json" name="file" id="input__file"
-                        class="input input__file" required>
-                    <label class="label__input" for="input__file">Select file</label>
-                </div>
-            <div btn_container>
-                <button class="btn__submit" type="submit" (click)="showModal(myForm)">Apply schema</button>
-            </div>
-        </form>
-    </div> -->
-
+<div class="container">
     <div class="container-path">
-        <span class="label__input-text" for="input__text">Selected directory: </span>
-        <span class="input__path" type="text" required>{{folderPath}} </span>
-    </div>
-
-    <div class="container">
-        <form #myForm="ngForm">
-            <div class="wrapper">
-                <input class="input__file" type="file" accept=".json" name="file" id="input__file" class="input input__file" 
-                (change)="onFileSelected($event)"
-                    required>
-                <label class="label__input" for="input__file">Select file</label>
-                
-            </div>
-            <div btn_container>
-                <button class="btn__submit" type="submit" (click)="showModal()">Apply schema</button>
-            </div>
-        </form>
+        <span class="span__label">Selected directory: </span>
+        <span class="span__path">{{folderPath}} </span>
     </div>
 
 
-
-
-    
+    <form #myForm="ngForm">
+        <div class="wrapper">
+            <span class="fileName">{{fileName}}   </span>
+            <input class="input__file" type="file" accept=".json" name="file" id="input__file" class="input input__file"
+                (change)="onFileSelected($event)" required>
+            <label class="label__input" for="input__file">   Select file</label>
+        </div>
+        <div>
+            <button class="btn__submit" type="submit" (click)="showModal()">Apply schema</button>
+        </div>
+    </form>
+</div>
