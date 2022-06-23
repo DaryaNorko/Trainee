@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace WorkDirApp.Controllers.Data
+namespace WorkDirApp.Data
 {
         public class NewDirectory
         {

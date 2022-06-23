@@ -23,12 +23,11 @@ export class DynamicDatabase {
 
   getChildren(node: Folder) {
     this.dto.path = node.path;
-    return this.http.post<Folder[]>(this.path + "/Folder/choseFolder", this.dto);
-    
+    return this.http.post<Folder[]>(this.path + "/Folder/selectFolder", this.dto);  
   }
 
   isExpandable(node: Folder): boolean {
-    return node.expandable; // проверить isHasChildren
+    return node.expandable; 
   }
 }
 
@@ -36,11 +35,11 @@ export class DynamicDataSource implements DataSource<Folder> {
   dataChange = new BehaviorSubject<Folder[]>([]);
 
   get data(): Folder[] {
-    return this.dataChange.value; // хочу узнать последнее значение
+    return this.dataChange.value;
   }
   set data(value: Folder[]) {
-    this._treeControl.dataNodes = value; // поставили в дерево
-    this.dataChange.next(value); // всем разослали?
+    this._treeControl.dataNodes = value; 
+    this.dataChange.next(value); 
   }
 
   constructor(
@@ -85,7 +84,6 @@ export class DynamicDataSource implements DataSource<Folder> {
 
       const index = this.data.indexOf(node);
       if (index < 0) {
-        // If no children, or cannot find the node, no op
         return;
       }
 
@@ -95,7 +93,6 @@ export class DynamicDataSource implements DataSource<Folder> {
         data.forEach(item => item.level = node.level + 1)
         this.data.splice(index + 1, 0, ...data);
 
-        // notify the change
         this.dataChange.next(this.data);
         node.isLoading = false;
 
@@ -136,7 +133,6 @@ export class DynamicDataSource implements DataSource<Folder> {
       selectFolder(node: Folder) {
         this.foldersService.setPath(node.path);
         this.foldersService.setIsExpanded(node.expandable);
-        this.foldersService.setFolder(node);
       }
 
       treeControl: FlatTreeControl<Folder>;

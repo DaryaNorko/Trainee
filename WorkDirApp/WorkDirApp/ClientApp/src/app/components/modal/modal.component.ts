@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IsCreateService } from 'src/app/_services/is-create.service';
 
 @Component({
@@ -19,11 +18,4 @@ export class ModalComponent implements OnInit {
   isCreate(status:boolean){
     this.createService.setIsCreate(status);
   }
-
-  bthClick(status: boolean){
-    if(status){
-      
-    }
-  }
-
 }

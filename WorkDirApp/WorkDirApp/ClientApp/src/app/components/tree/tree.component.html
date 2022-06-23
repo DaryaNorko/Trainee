@@ -2,7 +2,6 @@
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
             <div class="rows">
-                <!-- <button class="btn" mat-icon-button disabled></button> -->
                 <input class="radiobutton" type="radio" name="radiobutton" id="{{node.name}}">
                 <label class="directory" for="{{node.name}}" name="radiobutton" (click)="selectFolder(node)">
                     <span class="radio-span" name="radiobutton">

@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { IsCreateService } from 'src/app/_services/is-create.service';
 import { HttpClient } from '@angular/common/http';
-import { FormDto, FormDto2 } from 'src/app/models/formDto';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-main',
@@ -20,7 +19,6 @@ export class MainComponent implements OnInit {
   isCreate: boolean;
   file: File;
   fileName: string;
-  // formDto: FormDto = { path: "", file: new File([], "", null) }; // удалить dto
 
   constructor(private foldersService: FoldersService, private toastr: ToastrService, public dialog: MatDialog,
     public createService: IsCreateService, public http: HttpClient) {
@@ -40,12 +38,8 @@ export class MainComponent implements OnInit {
   }
 
   showModal() {
-    if (!this.folderPath) {
-      this.toastr.error("Please, select a directory", "Warning!", {
-        timeOut: 3000,
-      });
+    if (!this.userWarning())
       return;
-    }
 
     if (this.file) {
       let formParams = new FormData();
@@ -65,15 +59,44 @@ export class MainComponent implements OnInit {
           if (this.isCreate) {
             const upload$ = this.http.post(this.urlClearAndCreate, formParams);
             upload$.subscribe();
+            this.getToastrSuccess();
           } else {
             const upload$ = this.http.post(this.urlAppend, formParams);
             upload$.subscribe();
-          }
+            this.getToastrSuccess();
+          }           
         })
       } else {
         const upload$ = this.http.post(this.urlAppend, formParams);
         upload$.subscribe();
+        this.getToastrSuccess();
       }
     }
+  }
+
+  getToastrSuccess() {
+    this.toastr.success("New directory was created successfully", "Congratulations!", {
+      timeOut: 2000,
+    });
+  }
+
+  userWarning(): boolean {
+    if (!this.folderPath) {
+      this.toastr.error("Please, select a directory", "Attention!", {
+        timeOut: 3000,
+      });
+      return false;
+    } else if (!this.file) {
+      this.toastr.error("Please, select a file", "Attention!", {
+        timeOut: 3000,
+      });
+      return false;
+    } else if (!this.file && !this.folderPath) {
+      this.toastr.error("Please, select a file and a directory", "Attention!", {
+        timeOut: 3000,
+      });
+      return false;
+    } else
+      return true;
   }
 }

@@ -6,7 +6,6 @@ import { Folder } from '../models/folder';
   providedIn: 'root'
 })
 export class FoldersService {
-  folder: Folder;    // удалять или сохранять?
   path: string = "";
   isExpanded: boolean;
 
@@ -18,14 +17,6 @@ export class FoldersService {
 
   setIsExpanded(isExpanded: boolean){
     this.isExpanded = isExpanded;
-  }
-
-  getFolder(){
-    return this.folder;
-  }
-
-  setFolder(folder:Folder){
-    this.folder=folder;
   }
 
   getPath(){

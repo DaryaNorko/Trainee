@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WorkDirApp.Controllers.Data
+namespace WorkDirApp.Data
 {
     public class Folder
     {

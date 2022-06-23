@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using WorkDirApp.Controllers.Data;
+using WorkDirApp.Data;
 
 namespace WorkDirApp.Controllers
 {
@@ -22,7 +20,7 @@ namespace WorkDirApp.Controllers
 
             if (allDrives.Length < 0) return BadRequest();
 
-            foreach (var d in allDrives) // переделать имя 
+            foreach (var d in allDrives)
             {
                 DirectoryInfo dir = new(d.Name);
 
@@ -36,12 +34,11 @@ namespace WorkDirApp.Controllers
 
                 logicDisks.Add(folder);
             }
-
             return logicDisks;
         }
 
-        [HttpPost("choseFolder")]
-        public ActionResult<List<Folder>> GetChildrenFoldersNext(NextPath nextPath) //model
+        [HttpPost("selectFolder")]
+        public ActionResult<List<Folder>> GetChildrenFoldersNext(NextPath nextPath)
         {
             List<Folder> folderList = new();
 
@@ -54,7 +51,6 @@ namespace WorkDirApp.Controllers
 
                 foreach (var f in folders)
                 {
-
                     Folder childrenFolder = new Folder(f.Name);
 
                     try
@@ -65,59 +61,28 @@ namespace WorkDirApp.Controllers
                         if (childrens.GetDirectories().Length > 0)
                             childrenFolder.Expandable = true;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.StackTrace);
                     }
-
                     folderList.Add(childrenFolder);
                 }
 
                 if (folderList.Count == 0) return NoContent();
                 return folderList;
             }
-
             return BadRequest();
         }
 
         [HttpPost("appendDirectory")]
-        public ActionResult AppendNewDirectory([FromForm]NewDirectory newDirectory)
+        public ActionResult AppendNewDirectory([FromForm] NewDirectory newDirectory)
         {
-            string file = string.Empty;
             if (Directory.Exists(newDirectory.path))
             {
                 if (newDirectory.file.Length > 0)
-                {          
-                    using(var stream = newDirectory.file.OpenReadStream()){
-                        file = new StreamReader(stream).ReadToEnd();
-                        stream.Close();
-                    }
-                    
-                    var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
-
-                    foreach (var dir in dirs)
-                    {
-                        string newFolder = Path.Combine(newDirectory.path, dir.Key);
-                        Directory.CreateDirectory(newFolder);
-
-                        if (dir.Value != null)
-                        {
-                            foreach (var dirLevel2 in dir.Value)
-                            {
-                                string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
-                                Directory.CreateDirectory(newFolderLev2);
-
-                                if (dirLevel2.Value != null)
-                                {
-                                    foreach (var dirLevel3 in dirLevel2.Value)
-                                    {
-                                        string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
-                                        Directory.CreateDirectory(newFolderLev3);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                {
+                    CreateDirectory(newDirectory);
                 }
                 return Ok();
             }
@@ -127,7 +92,7 @@ namespace WorkDirApp.Controllers
         [HttpPost("clearAndCreateDirectory")]
         public ActionResult ClearAndCreateDirectory([FromForm] NewDirectory newDirectory)
         {
-            string file = string.Empty;
+
             if (Directory.Exists(newDirectory.path))
             {
                 if (newDirectory.file.Length > 0)
@@ -140,87 +105,63 @@ namespace WorkDirApp.Controllers
                         string path = Path.Combine(newDirectory.path, folder.Name);
                         Directory.Delete(path, true);
                     }
-
-                    using (var stream = newDirectory.file.OpenReadStream())
-                    {
-                        file = new StreamReader(stream).ReadToEnd();
-                        stream.Close();
-                    }
-
-                    var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
-
-                    foreach (var dir in dirs)
-                    {
-                        string newFolder = Path.Combine(newDirectory.path, dir.Key);
-                        Directory.CreateDirectory(newFolder);
-
-                        if (dir.Value != null)
-                        {
-                            foreach (var dirLevel2 in dir.Value)
-                            {
-                                string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
-                                Directory.CreateDirectory(newFolderLev2);
-
-                                if (dirLevel2.Value != null)
-                                {
-                                    foreach (var dirLevel3 in dirLevel2.Value)
-                                    {
-                                        string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
-                                        Directory.CreateDirectory(newFolderLev3);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    CreateDirectory(newDirectory);
                 }
                 return Ok();
             }
             return BadRequest();
         }
 
-        // [HttpPost("appendDirectory1")] // удалить
-        // public ActionResult AppendNewDirectory1([FromForm] NewDirectory newDirectory)
-        // {
-        //     string file = string.Empty;
-        //     if (Directory.Exists(newDirectory.path))
-        //     {
-        //         if (newDirectory.file.Length > 0)
-        //         {
-        //             using (var stream = newDirectory.file.OpenReadStream())
-        //             {
-        //                 file = new StreamReader(stream).ReadToEnd();
-        //                 stream.Close();
-        //             }
+        private void CreateDirectory(NewDirectory newDirectory)
+        {
+            string file = string.Empty;
+            using (var stream = newDirectory.file.OpenReadStream())
+            {
+                file = new StreamReader(stream).ReadToEnd();
+                stream.Close();
+            }
 
-        //             var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
+            var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
 
-        //             foreach (var dir in dirs)
-        //             {
-        //                 string newFolder = Path.Combine(newDirectory.path, dir.Key);
-        //                 Directory.CreateDirectory(newFolder);
+            FindAllDirectories(dirs, newDirectory.path);
 
-        //                 if (dir.Value != null)
-        //                 {
-        //                     foreach (var dirLevel2 in dir.Value)
-        //                     {
-        //                         string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
-        //                         Directory.CreateDirectory(newFolderLev2);
+            // foreach (var dir in dirs)
+            // {
+            //     string newFolder = Path.Combine(newDirectory.path, dir.Key);
+            //     Directory.CreateDirectory(newFolder);
 
-        //                         if (dirLevel2.Value != null)
-        //                         {
-        //                             foreach (var dirLevel3 in dirLevel2.Value)
-        //                             {
-        //                                 string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
-        //                                 Directory.CreateDirectory(newFolderLev3);
-        //                             }
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //         return Ok();
-        //     }
-        //     return BadRequest();
-        // }
+            //     if (dir.Value != null)
+            //     {
+            //         foreach (var dirLevel2 in dir.Value)
+            //         {
+            //             string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
+            //             Directory.CreateDirectory(newFolderLev2);
+
+            //             if (dirLevel2.Value != null)
+            //             {
+            //                 foreach (var dirLevel3 in dirLevel2.Value)
+            //                 {
+            //                     string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
+            //                     Directory.CreateDirectory(newFolderLev3);
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+        }
+
+        private void FindAllDirectories(UserDirectory dirs, string path)
+        {
+            foreach (var dir in dirs)
+            {
+                string newFolder = Path.Combine(path, dir.Key);
+                Directory.CreateDirectory(newFolder);
+
+                if (dir.Value != null)
+                    FindAllDirectories(dir.Value, newFolder);
+                // {
+                // }
+            }
+        }
     }
 }
