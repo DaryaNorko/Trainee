@@ -124,30 +124,6 @@ namespace WorkDirApp.Controllers
             var dirs = JsonConvert.DeserializeObject<UserDirectory>(file);
 
             FindAllDirectories(dirs, newDirectory.path);
-
-            // foreach (var dir in dirs)
-            // {
-            //     string newFolder = Path.Combine(newDirectory.path, dir.Key);
-            //     Directory.CreateDirectory(newFolder);
-
-            //     if (dir.Value != null)
-            //     {
-            //         foreach (var dirLevel2 in dir.Value)
-            //         {
-            //             string newFolderLev2 = Path.Combine(newFolder, dirLevel2.Key);
-            //             Directory.CreateDirectory(newFolderLev2);
-
-            //             if (dirLevel2.Value != null)
-            //             {
-            //                 foreach (var dirLevel3 in dirLevel2.Value)
-            //                 {
-            //                     string newFolderLev3 = Path.Combine(newFolderLev2, dirLevel3.Key);
-            //                     Directory.CreateDirectory(newFolderLev3);
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
         }
 
         private void FindAllDirectories(UserDirectory dirs, string path)
@@ -159,8 +135,6 @@ namespace WorkDirApp.Controllers
 
                 if (dir.Value != null)
                     FindAllDirectories(dir.Value, newFolder);
-                // {
-                // }
             }
         }
     }
